@@ -25,17 +25,16 @@ import (
 
 // OAuth2ProxySpec defines the desired state of OAuth2Proxy
 type OAuth2ProxySpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
-
-	// Foo is an example field of OAuth2Proxy. Edit oauth2proxy_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
+	Provider string `json:"provider"`
+	ClientId string `json:"clientId"`
+	// the secret name where to find the clientSecret and the cookieSecret
+	SecretName string `json:"secretName"`
 }
 
 // OAuth2ProxyStatus defines the observed state of OAuth2Proxy
 type OAuth2ProxyStatus struct {
-	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
+	// The service name of the oauth2-proxy
+	Service string `json:"service"`
 }
 
 //+kubebuilder:object:root=true
