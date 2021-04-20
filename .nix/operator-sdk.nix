@@ -1,4 +1,4 @@
-{ buildGoModule, go, lib, fetchFromGitHub, makeWrapper }:
+{ buildGoModule, go_1_15, lib, fetchFromGitHub, makeWrapper }:
 
 buildGoModule rec {
   pname = "operator-sdk";
@@ -17,12 +17,12 @@ buildGoModule rec {
 
   subPackages = [ "cmd/operator-sdk" ];
 
-  buildInputs = [ go makeWrapper ];
+  buildInputs = [ go_1_15 makeWrapper ];
 
   # operator-sdk uses the go compiler at runtime
   allowGoReference = true;
   postFixup = ''
-    wrapProgram $out/bin/operator-sdk --prefix PATH : ${lib.makeBinPath [ go ]}
+    wrapProgram $out/bin/operator-sdk --prefix PATH : ${lib.makeBinPath [ go_1_15 ]}
   '';
 
   meta = with lib; {

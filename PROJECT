@@ -1,0 +1,19 @@
+domain: diomedet.com
+layout:
+- go.kubebuilder.io/v3
+plugins:
+  manifests.sdk.operatorframework.io/v2: {}
+  scorecard.sdk.operatorframework.io/v2: {}
+projectName: oauth2-proxy-operator
+repo: github.com/oeN/oauth2-proxy-operator
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: diomedet.com
+  group: proxy
+  kind: OAuth2Proxy
+  path: github.com/oeN/oauth2-proxy-operator/api/v1alpha1
+  version: v1alpha1
+version: "3"
